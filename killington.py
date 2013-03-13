@@ -39,6 +39,7 @@ loc4 = result.find("/&gt;7 Day Snowfall: ") + 21
 loc_end4 = result.find("&amp;quot;&lt;br /&gt;&lt;br")
 msg = msg + "7 Day Snowfall " + result[loc4:loc_end4] + '"\n'
 
-# server.sendmail( 'SnowUpdates', 'a.yale9@gmail.com', str(msg))
-server.sendmail( 'SnowUpdates', '2672802787@vtext.com', str(msg))
+number = open("number").read()
+
+server.sendmail( 'SnowUpdates', number , str(msg))
 
