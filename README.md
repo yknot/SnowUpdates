@@ -5,8 +5,8 @@ This code is used to send SMS updates about skiing conditions to users cell phon
 
 At this point the code works with
   * Killington Ski Resort
+  * Killington Peak Weather NOAA
 
 Additional functionality needed to be added
   * Send e-mail address requests for skiing conditions
   * More ski resorts
-  * Weather information as well
