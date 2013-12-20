@@ -1,7 +1,10 @@
 SnowUpdates
 ===========
 
-This code is used to send SMS updates about skiing conditions to users cell phones.
+This code is used to send PushBullet updates about skiing conditions to users cell phones.
+
+**Broken right now but to be fixed**
+
 
 At this point the code works with
   * Killington Ski Resort
@@ -10,3 +13,7 @@ At this point the code works with
 Additional functionality needed to be added
   * Send e-mail address requests for skiing conditions
   * More ski resorts
+
+
+
+Using PushBullet now with the help of Azelphur's [pyPushBullet](https://github.com/Azelphur/pyPushBullet 'pyPushBullet') code
