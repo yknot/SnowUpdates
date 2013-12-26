@@ -1,37 +1,37 @@
-import urllib
-import BeautifulSoup
+from bs4 import BeautifulSoup
+import requests
 
 def killingtonSnow():
     
-    # get url and read in
-    url = "http://feeds.feedburner.com/KillingtonSnowReport?format=xml"
-    raw_text = urllib.urlopen(url).read()
-    
-    # get the file and parse it for most recent description
-    text = BeautifulSoup.BeautifulSoup(raw_text)
-    items = text.findAll("item")
-    result = items[0].find("description").text
-    
-    msg = "Killington Snow Update\n"
+    # get the page
+    url = 'http://www.killington.com/winter/mountain/conditions/index.html'
+    r = requests.get(url)
 
-    # number of trailso
-    loc1 = result.find("/&gt;Open Trails: ") + 18
-    loc_end1 = result.find("&lt;br /&gt;Open Lifts: ")
-    msg = msg + "Number of Trails " + result[loc1:loc_end1] + '\n'
+    # soup the data
+    data = r.text
+    soup = BeautifulSoup(data)
+
+    # get the stats table
+    table = soup.find('table', id='snow_report_stats')
+
+    msg = ''    
+
+    # get Open Trails
+    msg = msg + 'Open Trails: ' + table.find_all('td')[0].contents[0] + '\n'
+
+    # get Open Lifts
+    msg = msg + 'Open Lifts: ' + table.find_all('td')[1].contents[0] + '\n'
     
-    # 24 hour snowfall
-    loc2 = result.find("/&gt;24 Hour Snowfall: ") + 23
-    loc_end2 = result.find("&amp;quot;&lt;br /&gt;48 Hour Snowfall: ")
-    msg = msg + "24 Hour Snowfall " + result[loc2:loc_end2] + '"\n'
-    
-    # 48 hour snowfall
-    loc3 = result.find("/&gt;48 Hour Snowfall: ") + 23
-    loc_end3 = result.find("&amp;quot;&lt;br /&gt;7 Day Snowfall: ")
-    msg = msg + "48 Hour Snowfall " + result[loc3:loc_end3] + '"\n'
-    
-    # 7 day snowfall
-    loc4 = result.find("/&gt;7 Day Snowfall: ") + 21
-    loc_end4 = result.find("&amp;quot;&lt;br /&gt;&lt;br")
-    msg = msg + "7 Day Snowfall " + result[loc4:loc_end4] + '"\n'
-    
+    # get Surface Conditions
+    msg = msg + 'Surface: ' + table.find_all('td')[4].contents[0] + '\n'
+
+    # get 24 snow
+    msg = msg + '24 Hour: ' + table.find_all('td')[5].contents[0] + '\n'
+
+    # get 48 snow
+    msg = msg + '48 Hour: ' + table.find_all('td')[6].contents[0] + '\n'
+
+    # get 7 days snow
+    msg = msg + '7 Days: ' + table.find_all('td')[7].contents[0]
+
     return msg
