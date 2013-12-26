@@ -4,8 +4,7 @@ import requests
 
 from pushbullet import PushBullet
 
-from killingtonSnow import *
-#from killingtonWeather import *
+from killington import *
 
 
 apiKey = open("api_key").read()
