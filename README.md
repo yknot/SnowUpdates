@@ -3,16 +3,16 @@ SnowUpdates
 
 This code is used to send PushBullet updates about skiing conditions to users cell phones.
 
-**Broken right now but to be fixed**
-
-
 At this point the code works with
-  * Killington Ski Resort
-  * Killington Peak Weather NOAA
+  * Killington Ski Resort Conditions Page
+
+**Broken right now but to be fixed**
+	* Killington Peak Weather NOAA
 
 Additional functionality needed to be added
-  * Send e-mail address requests for skiing conditions
-  * More ski resorts
+	* Update only if more than 4" in past day
+	* Update if certain trails are open
+	* More ski resorts
 
 
 
