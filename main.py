@@ -31,11 +31,12 @@ def main():
 	else:
 		# make push bullet object with api key
 		p = PushBullet(apiKey)
+
         # Get a list of devices
         devices = p.getDevices()
 
        	# RESORTS
-       	sendResortMsgs(user_data, resort, p)
+       	sendResortMsgs(user_data, p, devices)
 
 
 if __name__ == '__main__':

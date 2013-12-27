@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 from pushBullet import PushBullet
 from getMsg import *
 
-def sendResortMsgs(user_data, resort, p):
+def sendResortMsgs(user_data, p, devices):
 	# for each of those resorts the user has chosen
 	for child in user_data.find('resorts'):
 	    # set the resort value from the user_data
