@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <resorts>
 	<killington>
+		<name>Killington</name>
 		<url>http://www.killington.com/winter/mountain/conditions/index.html</url>
 		<tag>table</tag>
 		<tag_id>snow_report_stats</tag_id>
@@ -31,4 +32,7 @@
 			</week>
 		</stats>
 	</killington>
+	<killington_NOAA>
+		<url>http://www.erh.noaa.gov/btv/mountain/point/KILLINGTON.txt</url>
+	</killinton_NOAA>
 </resorts>
