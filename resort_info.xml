@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<resorts>
+	<killington>
+		<url>http://www.killington.com/winter/mountain/conditions/index.html</url>
+		<tag>table</tag>
+		<tag_id>snow_report_stats</tag_id>
+		<stats>
+			<trails>
+				<tag>td</tag>
+				<n>0</n>
+			</trails>
+			<lifts>
+				<tag>td</tag>
+				<n>1</n>
+			</lifts>
+			<surface>
+				<tag>td</tag>
+				<n>4</n>
+			</surface>
+			<day>
+				<tag>td</tag>
+				<n>5</n>
+			</day>
+			<two_day>
+				<tag>td</tag>
+				<n>6</n>
+			</two_day>
+			<week>
+				<tag>td</tag>
+				<n>7</n>
+			</week>
+		</stats>
+	</killington>
+</resorts>
