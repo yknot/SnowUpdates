@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 
 def getXml(resort):
     # parse xml file for resort data
-    root = ET.parse('resort_info.xml').getroot()
+    root = ET.parse('xml_files/resort_info.xml').getroot()
     return root.find(resort)
 
 

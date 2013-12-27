@@ -10,7 +10,7 @@ from sendMsg import *
 
 def main():
 	# open users xml file to get api_key
-	root = ET.parse('users.xml').getroot()
+	root = ET.parse('xml_files/users.xml').getroot()
 
 	if len(sys.argv) > 1:
 		name = str(sys.argv[1])
