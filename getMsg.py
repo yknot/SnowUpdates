@@ -56,7 +56,8 @@ def getConditionsMsg(table, resort_data):
         stat = stats.find(name)
 
         # CHECK IF STAT IS THERE, IF NOT DON'T INCLUDE
-        #if stat == null
+        if not stat:
+            continue
 
         # get the location information for the data
         tag = stat.find('tag').text
