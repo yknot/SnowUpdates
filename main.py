@@ -41,6 +41,9 @@ def main():
        	# RESORTS
        	sendResortMsgs(user_data, p, devices)
 
+       	# WEATHER
+       	sendWeatherMsgs(user_data, p, devices)
+
 
 if __name__ == '__main__':
 	main()

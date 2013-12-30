@@ -12,7 +12,7 @@ def sendResortMsgs(user_data, p, devices):
 	    resort = child.text
 
         # get section of xml for the right resort
-        resort_data = getXml(resort)
+        resort_data = getXml(resort, 1)
 
         # get the soup object of the website
         soup = getSoup(resort_data.find('url').text)
@@ -25,4 +25,21 @@ def sendResortMsgs(user_data, p, devices):
 
     	# push the note to the device
     	p.pushNote(devices[0]['id'], resort_data.find('name').text + ' Snow Report', msg)
+
+
+
+def sendWeatherMsgs(user_data, p, devices):
+    # for each o the weather locations the user has chosen
+    for child in user_data.find('weather'):
+        # set the weather location from the user_data
+        weather = child.text
+
+        # get section of xml for the right weather location
+        weather_data = getXml(weather, 0)
+
+        # get the soup object of the website
+        soup = getSoup(weather_data.find('url').text)
+
+        # get the weather info
+        #######table = getWeather(soup, resort_data)
 

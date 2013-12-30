@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<weather>
+	<killington>
+		<name>Killington</name>
+		<url>http://www.erh.noaa.gov/btv/mountain/point/KILLINGTON.txt</url>
+		<tag></tag>
+		<id></id>
+		<stats>
+
+		</stats>
+	</killington>
+</weather>

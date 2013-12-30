@@ -2,11 +2,15 @@ from bs4 import BeautifulSoup
 import requests
 import xml.etree.ElementTree as ET
 
-def getXml(resort):
-    # parse xml file for resort data
-    root = ET.parse('xml_files/resort_info.xml').getroot()
-    return root.find(resort)
+def getXml(location, resort):
+    if resort:
+        # parse xml file for resort data
+        root = ET.parse('xml_files/resort_info.xml').getroot()
+    else:
+        # parse xml file for weather data
+        root = ET.parse('xml_files/weather_info.xml').getroot()
 
+    return root.find(location)
 
 def getSoup(url):
     # get the page
@@ -30,7 +34,7 @@ def getStatsTable(soup, resort_data):
     return table
 
 
-def initValues():
+def initResortValues():
     # initialize names to search in xml
     names = ['trails', 'lifts', 'surface', 'day', 'two_day', 'week']
 
@@ -42,7 +46,7 @@ def initValues():
 
 def getConditionsMsg(table, resort_data):
     # get names and labels
-    names, labels = initValues()
+    names, labels = initResortValues()
 
     # get the stats location info from xml
     stats = resort_data.find('stats')
@@ -75,31 +79,17 @@ def getConditionsMsg(table, resort_data):
 
 
 
-##############
-### BROKEN ###
-##############
+###################
+### Not Working ###
+###################
 
-def killingtonWeather():
-    
-    
-    # get the Times
-    loc2 = raw_text.find("TIME") + 17
-    loc_end2 = raw_text.find("TEMP") - 28
-    msg = msg + "Time\n" + raw_text[loc2:loc_end2] + '\n'
 
-    # get the Temps
-    loc3 = raw_text.find("TEMP") + 17
-    loc_end3 = raw_text.find("WIND DIR") - 28
-    msg = msg + "Temp\n" + raw_text[loc3:loc_end3] + '\n'    
+def initWeatherValues():
+    # initialize names to search in xml
+    names = ['Time', 'Temp', 'Wind Dir', 'Precip', 'Snow Amt']
 
-    # get the Precip Perct
-    loc4 = raw_text.find("PROB PRECIP") + 17
-    loc_end4 = raw_text.find("SNOW AMT") - 28
-    msg = msg + "Prec\n" + raw_text[loc4:loc_end4] + '\n'    
+    # initialize labels for message data
+    ##labels = {names[0] : 'Open Trails: ', names[1] : 'Open Lifts: ', names[2] : 'Surface: ', names[3] : '24 Hour Snow: ', names[4] : '48 Hour Snow: ', names[5] : '7 Day Snow: '}
 
-    # get the Snowfall amount
-    loc4 = raw_text.find("SNOW AMT") + 17
-    loc_end4 = raw_text.find("$$") - 32
-    msg = msg + "Snow\n" + raw_text[loc4:loc_end4]    
-    
-    return msg
+    return names, labels
+
