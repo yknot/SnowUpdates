@@ -4,7 +4,8 @@ import xml.etree.ElementTree as ET
 import sys
 import os
 
-sys.path.append(os.getcwd() + '\\modules')
+#sys.path.append(os.getcwd() + '\\modules')
+sys.path.append(os.getcwd() + '/modules')
 
 # user imports
 from pushBullet import PushBullet
