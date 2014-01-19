@@ -59,7 +59,7 @@ def getConditionsMsg(table, resort_data):
         # get the stat in the xml
         stat = stats.find(name)
 
-        # CHECK IF STAT IS THERE, IF NOT DON'T INCLUDE
+        # check if stat is there, if not don't include
         if stat is None:
             continue
 

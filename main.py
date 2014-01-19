@@ -3,6 +3,7 @@ import requests
 import xml.etree.ElementTree as ET
 import sys
 import os
+import time
 
 sys.path.append(os.getcwd() + '/modules')
 
@@ -10,39 +11,45 @@ sys.path.append(os.getcwd() + '/modules')
 from pushBullet import PushBullet
 from getMsg import *
 from sendMsg import *
+from updateSnowfall import *
 
 def main():
-	# open users xml file to get api_key
-	root = ET.parse('xml_files/users.xml').getroot()
 
-	if len(sys.argv) > 1:
-		name = str(sys.argv[1])
-	else:
-		name = 'Andrew Yale'
+	# update resorts snowfalls
+	new_snow = updateSnowfall()
 
-	# set empy api key
-	apiKey = ''
+	if new_snow:
+		# open users xml file to get api_key
+		root = ET.parse('xml_files/users.xml').getroot()
 
-	for child in root:
-		if child.attrib['name'] == name:
-			user_data = child
-			apiKey = child.find('api_key').text
-			break
+		if len(sys.argv) > 1:
+			name = str(sys.argv[1])
+		else:
+			name = 'Andrew Yale'
 
-	if apiKey == '':
-		print 'User not found'
-	else:
-		# make push bullet object with api key
-		p = PushBullet(apiKey)
+		# set empy api key
+		apiKey = ''
 
-        # Get a list of devices
-        devices = p.getDevices()
+		for child in root:
+			if child.attrib['name'] == name:
+				user_data = child
+				apiKey = child.find('api_key').text
+				break
 
-       	# RESORTS
-       	sendResortMsgs(user_data, p, devices)
+		if apiKey == '':
+			print 'User not found'
+		else:
+			# make push bullet object with api key
+			p = PushBullet(apiKey)
 
-       	# WEATHER
-       	sendWeatherMsgs(user_data, p, devices)
+			# Get a list of devices
+			devices = p.getDevices()
+
+			# RESORTS
+			sendResortMsgs(user_data, p, devices)
+
+			# WEATHER
+			sendWeatherMsgs(user_data, p, devices)
 
 
 if __name__ == '__main__':
