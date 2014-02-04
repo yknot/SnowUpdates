@@ -2,9 +2,9 @@
 <weather>
 	<killington>
 		<name>Killington</name>
-		<url>http://www.erh.noaa.gov/btv/mountain/point/KILLINGTON.txt</url>
+		<url>http://forecast.weather.gov/MapClick.php?lat=43.67000&amp;lon=-72.77&amp;unit=0&amp;lg=english&amp;FcstType=dwml</url>
 		<tag></tag>
-		<id></id>
+		<tag_id></tag_id>
 		<stats>
 
 		</stats>

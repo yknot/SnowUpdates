@@ -15,42 +15,44 @@ from updateSnowfall import *
 
 def main():
 
-	# update resorts snowfalls
-	new_snow = updateSnowfall()
+    # update resorts snowfalls
+    new_snow = updateSnowfall()
 
-	if new_snow:
-		# open users xml file to get api_key
-		root = ET.parse('xml_files/users.xml').getroot()
 
-		if len(sys.argv) > 1:
-			name = str(sys.argv[1])
-		else:
-			name = 'Andrew Yale'
+    # open users xml file to get api_key
+    root = ET.parse('xml_files/users.xml').getroot()
 
-		# set empy api key
-		apiKey = ''
+    if len(sys.argv) > 1:
+        name = str(sys.argv[1])
+    else:
+        name = 'Andrew Yale'
 
-		for child in root:
-			if child.attrib['name'] == name:
-				user_data = child
-				apiKey = child.find('api_key').text
-				break
+    # set empy api key
+    apiKey = ''
 
-		if apiKey == '':
-			print 'User not found'
-		else:
-			# make push bullet object with api key
-			p = PushBullet(apiKey)
+    for child in root:
+        if child.attrib['name'] == name:
+            user_data = child
+            apiKey = child.find('api_key').text
+            break
 
-			# Get a list of devices
-			devices = p.getDevices()
+    if apiKey == '':
+        print 'User not found'
+        return
+    
+    # make push bullet object with api key
+    p = PushBullet(apiKey)
 
-			# RESORTS
-			sendResortMsgs(user_data, p, devices)
+    # Get a list of devices
+    devices = p.getDevices()
 
-			# WEATHER
-			sendWeatherMsgs(user_data, p, devices)
+    if 0:
+        # RESORTS
+        sendResortMsgs(user_data, p, devices)
+
+    # WEATHER
+    sendWeatherMsgs(user_data, p, devices)
 
 
 if __name__ == '__main__':
-	main()
+    main()

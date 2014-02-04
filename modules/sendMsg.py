@@ -24,7 +24,7 @@ def sendResortMsgs(user_data, p, devices):
         msg = getConditionsMsg(table, resort_data)
 
     	# push the note to the device
-    	p.pushNote(devices[0]['id'], resort_data.find('name').text + ' Snow Report', msg)
+        p.pushNote(devices[0]['id'], resort_data.find('name').text + ' Snow Report', msg)
 
 
 
@@ -37,9 +37,18 @@ def sendWeatherMsgs(user_data, p, devices):
         # get section of xml for the right weather location
         weather_data = getXml(weather, 0)
 
-        # get the soup object of the website
-        soup = getSoup(weather_data.find('url').text)
+        # get the tree and root object of the website
+        tree, root = getTreeRoot(weather_data.find('url').text)
 
         # get the weather info
-        #######table = getWeather(soup, resort_data)
+        table = getWeatherTable(tree, root, weather_data)
+
+        print table
+
+        # get weather message
+        #msg = getWeatherMsg(table, weather_data)
+
+        # push the note to the device
+        #p.pushNote(devices[0]['id'], weather_data.find('name').text + ' Weather Report', msg)
+
 
