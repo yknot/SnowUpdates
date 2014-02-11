@@ -18,5 +18,7 @@ Future Improvements
   * More ski resorts
 
 
+Contact: SnowUpdates@gmail.com
+
 
 Using PushBullet now with the help of Azelphur's [pyPushBullet](https://github.com/Azelphur/pyPushBullet 'pyPushBullet') code
