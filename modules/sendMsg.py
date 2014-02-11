@@ -3,7 +3,8 @@ import requests
 import xml.etree.ElementTree as ET
 
 from pushBullet import PushBullet
-from getMsg import *
+from getResortMsg import *
+from getWeatherMsg import *
 
 def sendResortMsgs(user_data, p, devices):
 	# for each of those resorts the user has chosen
@@ -41,9 +42,7 @@ def sendWeatherMsgs(user_data, p, devices):
         tree, root = getTreeRoot(weather_data.find('url').text)
 
         # get the weather info
-        table = getWeatherTable(tree, root, weather_data)
-
-        print table
+        stats = getWeatherStats(root)
 
         # get weather message
         #msg = getWeatherMsg(table, weather_data)

@@ -3,10 +3,5 @@
 	<killington>
 		<name>Killington</name>
 		<url>http://forecast.weather.gov/MapClick.php?lat=43.67000&amp;lon=-72.77&amp;unit=0&amp;lg=english&amp;FcstType=dwml</url>
-		<tag></tag>
-		<tag_id></tag_id>
-		<stats>
-
-		</stats>
 	</killington>
 </weather>

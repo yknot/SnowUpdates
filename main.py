@@ -9,7 +9,8 @@ sys.path.append(os.getcwd() + '/modules')
 
 # user imports
 from pushBullet import PushBullet
-from getMsg import *
+from getResortMsg import *
+from getWeatherMsg import *
 from sendMsg import *
 from updateSnowfall import *
 
