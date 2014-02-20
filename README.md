@@ -9,7 +9,7 @@ Functioning Resorts
 
 Broken
 ------
-  * Killington Peak Weather NOAA
+  * Killington Peak Weather NOAA [weather link] (http://forecast.weather.gov/MapClick.php?lat=43.67000&lon=-72.77&unit=0&lg=english&FcstType=dwml)
 
 Future Improvements
 -------------------
